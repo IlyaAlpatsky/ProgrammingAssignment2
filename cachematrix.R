@@ -1,7 +1,21 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The file contains 2 functions MakeCacheMatrix and cacheSolve
+## functions create an object (MakeCacheMatrix) and inverse matrix 
+## or load inversed matrix from cache if it has been already calculated
 
-## Write a short comment describing this function
+## The function create an object with methods to set value and get value of
+## original matrix and for setinverse and getinverse methods
+## f.e. init object:
+## b<-makeCacheMatrix(mat)  
+## inverse matrix 1st, real inversion and write result to cache:
+## b_inv <- cacheSolve(b) 
+## read from cache because already inversed matrix has not been changed yet
+## b_inv <- cacheSolve(b)
+## set new matrix, chached inversed matrix will be unset to NULL:
+## b$set(mat_new)
+## b_inv <- cacheSolve(b)
+## Real calculation, because inversed matrix has bee just unset
+
+
 
 makeCacheMatrix <- function(x = matrix()) {
   r <- NULL
@@ -18,7 +32,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## The function iverse or load inversed matrix from cache
+## the function work only with object created by MakeCacheMatrix
+##
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
